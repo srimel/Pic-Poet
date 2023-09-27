@@ -11,6 +11,6 @@
 3. zxcv
 
 #### Heading 3
-- [_] qwerty
-- [_] qwerty
-- [_] qwerty
+- [ ] qwerty
+- [x] qwerty
+- [x] qwerty
