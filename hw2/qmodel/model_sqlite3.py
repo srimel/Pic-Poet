@@ -35,7 +35,7 @@ class model(Model):
         connection = sqlite3.connect(DB_FILE)
         cursor = connection.cursor()
         cursor.execute(
-            "insert into quotes values (quote, author, date, type, source, rating) values (:quote, :author, :date, :type, :source, :rating)",
+            "insert into quotes (quote, author, date, type, source, rating) values (:quote, :author, :date, :type, :source, :rating)",
             params,
         )
         connection.commit()
