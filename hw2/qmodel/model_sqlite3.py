@@ -18,12 +18,26 @@ class model(Model):
         cursor.close()
 
     def select(self):
+        """
+        Gets all quotes from the database
+        :return: List containing all quotes
+        """
         connection = sqlite3.connect(DB_FILE)
         cursor = connection.cursor()
         cursor.execute("select * from quotes")
         return cursor.fetchall()
 
     def insert(self, quote, author, date, type, source, rating):
+        """
+        Inserts a quote into the database
+        :param quote: String
+        :param author: String
+        :param date: String
+        :param type: String
+        :param source: String
+        :param rating: float
+        :return: None
+        """
         params = {
             "quote": quote,
             "author": author,
