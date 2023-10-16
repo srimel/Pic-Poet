@@ -10,7 +10,7 @@ class model(Model):
         connection = sqlite3.connect(DB_FILE)
         cursor = connection.cursor()
         try:
-            cursor.execute("select count(rowid) from quotes")
+            cursor.execute("select count(*) from quotes")
         except sqlite3.OperationalError:
             cursor.execute(
                 "create table quotes (quote text, author text, date date, type text, source text, rating float)"
