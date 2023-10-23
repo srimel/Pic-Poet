@@ -1,0 +1,16 @@
+{% extends "layout.html" %} {% block content %}
+<h2>Quotes</h2>
+
+<h3>Add a Quote <a href="{{ url_for('quote') }}">here</a></h3>
+<h3>Quotes</h3>
+{% for q in quotes %}
+<p class="quote">
+  <br />
+  Quote: {{ q.quote }} <br />
+  Said by: {{ q.author }} <br />
+  Date: {{ q.date }} <br />
+  Source: {{ q.source }} <br />
+  Source Type: {{ q.type }} <br />
+  Rating: {{ q.rating }}
+</p>
+{% endfor %} {% endblock %}
