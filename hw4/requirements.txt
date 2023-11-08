@@ -1,5 +1,2 @@
 google-cloud-datastore
-google-cloud-firestore
-rsa
-wheel
 flask
