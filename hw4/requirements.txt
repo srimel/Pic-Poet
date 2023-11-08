@@ -1,2 +1,6 @@
 google-cloud-datastore
 flask
+gunicorn
+rsa
+wheel
+google-cloud-firestore

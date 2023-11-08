@@ -1,4 +1,4 @@
-FROM python:alpine
+FROM google/cloud-sdk
 
 LABEL maintainer="srimel@pdx.edu"
 
@@ -6,8 +6,6 @@ COPY . /app
 
 WORKDIR /app
 
-RUN pip install --no-cache -r requirements.txt
+RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && apt update --allow-releaseinfo-change -y && apt install -y python3-pip && pip3 install -r requirements.txt
 
-ENTRYPOINT ["python3"]
-
-CMD ["app.py"]
+CMD gunicorn --bind :$PORT --workers 1 --threads 8 app:app
