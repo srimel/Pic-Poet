@@ -5,3 +5,4 @@ __pycache__/
 Notes.md
 .vscode
 *.json
+final/static/tmp_image/
