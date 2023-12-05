@@ -27,18 +27,11 @@ class Search(MethodView):
         image = vision.Image(content=content)
         labels = client.label_detection(image=image).label_annotations
         objects = client.object_localization(image=image).localized_object_annotations
-        # TODO: also grab product search results
+        # TODO: also grab product search results to add more specificity to poem
 
-        # TODO: debug print statment, remove before production
-        print("Labels:")
-        for label in labels:
-            print(label.description)
-        print("Objects:")
-        for object_ in objects:
-            print(object_.name)
-
-        # TODO: create poem page to view image along with poem
-        return redirect(url_for("index"))
+        return redirect(
+            url_for("poem", image_path=image_path, labels=labels, objects=objects)
+        )
 
     def isValidImageFile(self, file) -> bool:
         """Returns True if the file is a valid image file, False otherwise"""
