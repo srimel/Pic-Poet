@@ -26,3 +26,7 @@ form {
     padding-bottom: 2em; 
     border-bottom: 1px solid #888; 
 }
+.image { 
+    max-width: 50%; 
+    height: auto;
+}
