@@ -2,6 +2,15 @@
 
 <h2>Pic Poet</h2>
 
+{% with messages = get_flashed_messages() %} {% if messages %}
+<p>System Messages</p>
+<ul class="flashes">
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %} {% endwith %}
+
 <p>Upload an image to inspire a poem</p>
 
 <form
