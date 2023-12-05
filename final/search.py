@@ -11,6 +11,8 @@ class Search(MethodView):
     # temporary image directory
     TMP_IMAGE_DIR = "static/tmp_image"
 
+    # TODO: add get method that that uses request arg for image path to generate another poem for same image
+
     def post(self):
         file = request.files["file"]
 
