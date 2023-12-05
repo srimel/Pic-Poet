@@ -1,0 +1,12 @@
+{% extends "layout.html" %} {% block content %}
+
+<h2>Pic Poet</h2>
+
+<p>Upload an image to inspire a poem</p>
+
+<form action="" enctype="multipart/form-data" method="post">
+  <input type="file" name="file" />
+  <input type="submit" value="Submit Image" />
+</form>
+
+{% endblock %}
