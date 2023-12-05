@@ -4,3 +4,4 @@ antenv/
 __pycache__/
 Notes.md
 .vscode
+*.json
