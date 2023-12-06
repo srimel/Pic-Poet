@@ -6,11 +6,10 @@ from openai import OpenAI
 
 class Poem(MethodView):
     def get(self):
-        # TODO: fix format of poem string for nice output
         image_path = request.args.get("image_path")
-        # returns as json object with keys: title, poem
-        # if there was an error it will return with key: error
-        poem = self.createPoem(request.args.get("labels"), request.args.get("objects"))
+        labels = request.args.get("labels")
+        objects = request.args.get("objects")
+        poem = self.createPoem(labels, objects)
         if "error" in poem:
             title = "Error"
             poem = poem["error"]
@@ -19,7 +18,12 @@ class Poem(MethodView):
             poem = poem["poem"]
 
         return render_template(
-            "poem.html", image_path=image_path, title=title, poem=poem
+            "poem.html",
+            image_path=image_path,
+            title=title,
+            poem=poem,
+            labels=labels,
+            objects=objects,
         )
 
     def createPoem(self, labels, objects):
@@ -43,5 +47,5 @@ class Poem(MethodView):
         return prompt
 
     def createSystemRole(self):
-        role_prompt = 'You are a master artist of poetry who is skilled in creating poems of all styles. When you answer the user\'s prompt, please output in json in the following format: {"title": <title>, "poem": <poem>}'
+        role_prompt = 'You are a master artist of poetry who is skilled in creating poems of all styles. When you answer the user\'s prompt, please output in json in the following format: {"title": <title>, "poem": <poem>} make sure to use double quotes for the json keys and values.'
         return role_prompt

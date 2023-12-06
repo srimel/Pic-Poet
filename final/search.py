@@ -11,8 +11,6 @@ class Search(MethodView):
     # temporary image directory
     TMP_IMAGE_DIR = "static/tmp_image"
 
-    # TODO: add get method that that uses request arg for image path to generate another poem for same image
-
     def post(self):
         file = request.files["file"]
 
@@ -25,6 +23,8 @@ class Search(MethodView):
 
         with open(image_path, "rb") as image_file:
             content = image_file.read()
+
+        # TODO: show loading screen while waiting for response
 
         image = vision.Image(content=content)
         labels = client.label_detection(image=image).label_annotations
