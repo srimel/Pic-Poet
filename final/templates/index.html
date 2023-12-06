@@ -22,4 +22,18 @@
   <input type="submit" value="Submit Image" />
 </form>
 
+<!-- Hidden loading div -->
+<div id="loading" style="display: none">
+  <img src="../static/loading.gif" alt="Loading..." />
+</div>
+
+<!-- JS for handling loading div -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('form').on('submit', function () {
+      $('#loading').show();
+    });
+  });
+</script>
 {% endblock %}

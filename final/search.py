@@ -24,8 +24,6 @@ class Search(MethodView):
         with open(image_path, "rb") as image_file:
             content = image_file.read()
 
-        # TODO: show loading screen while waiting for response
-
         image = vision.Image(content=content)
         labels = client.label_detection(image=image).label_annotations
         objects = client.object_localization(image=image).localized_object_annotations
