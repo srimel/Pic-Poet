@@ -4,11 +4,18 @@
 {% if image_path %}
 <img src="{{ image_path }}" alt="" class="image" />
 {% endif %} {% if poem %}
-<h3>{{ title }}</h3>
-<p>{{ poem.replace('\n', '<br />')|safe }}</p>
+<h3 id="title">{{ title }}</h3>
+<p id="poem">{{ poem.replace('\n', '<br />')|safe }}</p>
 {% endif %}
+
+<!-- Hidden loading div -->
+<div id="loading" style="display: none">
+  <img src="../static/loading.gif" alt="Loading..." />
+</div>
+
 <div>
   <a
+    id="regenerate-poem"
     href="{{ url_for('poem', image_path=image_path, labels=labels, objects=objects) }}"
     >Regenerate Poem</a
   >
@@ -16,5 +23,18 @@
 <div>
   <a href="{{ url_for('index') }}">Generate Another Pic Poem</a>
 </div>
+
+<!-- JS for handling loading div -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#regenerate-poem').on('click', function () {
+      $('#loading').show();
+      $('#title').hide();
+      $('#poem').hide();
+    });
+  });
+</script>
+
 <!-- TODO: add an option to download the poem -->
 {% endblock %}
