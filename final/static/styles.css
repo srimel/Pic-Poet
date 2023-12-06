@@ -1,10 +1,10 @@
-/* TODO: add my own custom styles instead of guestbook styles */
 body { 
     font-family: "Helvetica", sans-serif; 
     font-size: 20px; 
-    color: #008303; 
+    text-align: center;
+    color: black; 
 }
-a, h1, h2 { 
+a, h1, h2, h3 { 
     color: #00008F; 
 }
 form { 
