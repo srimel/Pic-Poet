@@ -6,3 +6,4 @@ Notes.md
 .vscode
 *.json
 final/static/tmp_image/
+.dockerignore
