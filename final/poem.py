@@ -40,6 +40,7 @@ class Poem(MethodView):
             poem_json = json.loads(poem)
             return poem_json
         except ValueError as e:
+            print(f"Error parsing json: {poem}")
             return {"error": "Error parsing poem json"}
 
     def createUserPrompt(self, labels, objects):
@@ -47,5 +48,5 @@ class Poem(MethodView):
         return prompt
 
     def createSystemRole(self):
-        role_prompt = 'You are a master artist of poetry who is skilled in creating poems of all styles. When you answer the user\'s prompt, please output in json in the following format: {"title": <title>, "poem": <poem>} make sure to use double quotes for the json keys and values.'
+        role_prompt = 'You are a master artist of poetry who is skilled in creating poems of all styles. When you answer the user\'s prompt, please output in json in the following format: {"title": <title>, "poem": <poem>} make sure to use double quotes for the json keys and values. Also you must make sure to escape any newline characters in the poem with a backslash. The json output must be compatible with the json.loads() function in python.'
         return role_prompt
