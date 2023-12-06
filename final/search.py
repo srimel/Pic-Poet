@@ -27,7 +27,6 @@ class Search(MethodView):
         image = vision.Image(content=content)
         labels = client.label_detection(image=image).label_annotations
         objects = client.object_localization(image=image).localized_object_annotations
-        # TODO: also grab product search results to add more specificity to poem
 
         return redirect(
             url_for("poem", image_path=image_path, labels=labels, objects=objects)
