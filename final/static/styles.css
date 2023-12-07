@@ -11,7 +11,7 @@ form {
     margin:.1em auto; 
     padding:.1em; 
     width: 400px; 
-    border: 1px 
+    border: 1px solid #252424; 
 }
 .heading { 
     font-weight: bold; 
@@ -20,11 +20,6 @@ form {
     margin:.1em auto; 
     padding:.1em; 
     width: 504px;  
-}
-.entry { 
-    margin-bottom: 2em; 
-    padding-bottom: 2em; 
-    border-bottom: 1px solid #888; 
 }
 .image { 
     max-width: 50%; 
