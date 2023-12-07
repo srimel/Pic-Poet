@@ -1,7 +1,6 @@
 {% extends "layout.html" %} {% block content %}
-
 <h2>Pic Poet</h2>
-
+<a href="{{ url_for('about') }}">About</a>
 {% with messages = get_flashed_messages() %} {% if messages %}
 <p>System Messages</p>
 <ul class="flashes">
@@ -10,9 +9,7 @@
   {% endfor %}
 </ul>
 {% endif %} {% endwith %}
-
 <p>Upload an image to inspire a poem</p>
-
 <form
   action="{{ url_for('search') }}"
   enctype="multipart/form-data"
@@ -25,6 +22,7 @@
 <!-- Hidden loading div -->
 <div id="loading" style="display: none">
   <img src="../static/loading.gif" alt="Loading..." />
+  <p>Seeking inspiration...</p>
 </div>
 
 <!-- JS for handling loading div -->
