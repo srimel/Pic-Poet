@@ -2,12 +2,12 @@
 <h2>Pic Poet</h2>
 <a href="{{ url_for('about') }}">About</a>
 {% with messages = get_flashed_messages() %} {% if messages %}
-<p>System Messages</p>
-<ul class="flashes">
+<div class="system">
+  <h3>System Messages</h3>
   {% for message in messages %}
-  <li>{{ message }}</li>
+  <p>{{ message }}</p>
   {% endfor %}
-</ul>
+</div>
 {% endif %} {% endwith %}
 <p>Upload an image to inspire a poem</p>
 <form

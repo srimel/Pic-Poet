@@ -28,3 +28,6 @@ form {
 .about {
     text-align: left !important;
 }
+.system {
+    color: red;
+}
