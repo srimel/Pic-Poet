@@ -1,0 +1,19 @@
+{% extends "layout.html" %} {% block content %}
+
+<h2>About</h2>
+<a href="{{ url_for('index') }}">Return to Pic Poet</a>
+<p class="about">
+  Pic Poet is a simple web app that generates poems from images. It uses a
+  pre-trained neural network to identify objects in the image (Google's Cloud
+  Vision AI), and then uses a pre-trained language model (OpenAI, GPT-3.5-turbo)
+  to generate a poem based on the identified objects. This project is deployed
+  on Cloud Run, a serverless platform that allows for easy scaling and
+  deployment.
+  <br /><br />
+
+  Pic Poet was created by
+  <a href="https://linkedin.com/in/srimel">Stuart Rimel</a> as a final project
+  for Internet, Web, and Cloud Systems at Portland State University.
+</p>
+
+{% endblock %}
