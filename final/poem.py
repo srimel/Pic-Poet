@@ -40,8 +40,9 @@ class Poem(MethodView):
             poem_json = json.loads(poem)
             return poem_json
         except ValueError as e:
-            print(f"Error parsing json: {poem}")
-            return {"error": "Error parsing poem json"}
+            return {
+                "error": "Hmm, something went wrong. Please try to 'Regenerate Poem'."
+            }
 
     def createUserPrompt(self, labels, objects):
         prompt = f"Create a poem about {labels} and {objects}."
